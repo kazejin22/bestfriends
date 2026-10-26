@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Best Friend</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%99%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,300;1,400&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="bg"><div class="bg-layer"></div><div class="bg-layer"></div></div>
+  <canvas id="scene"></canvas>
+
+  <div id="labels"></div>
+
+  <!-- garis hitam sinematik atas-bawah (scene pembuka, panggung, cahaya surgawi, hati patah, penutup) -->
+  <div id="letterbox"><i></i><i></i></div>
+
+  <!-- pembuka: judul dibentuk partikel, nama artis muncul di bawahnya -->
+  <div id="title-card"><p>Rex Orange County</p></div>
+
+  <!-- penutup -->
+  <div id="ending">
+    <p class="end-title">Best Friend</p>
+    <p class="end-artist">Rex Orange County</p>
+    <p class="end-credit">a lyric visual by Andrew</p>
+    <button id="replay">Putar lagi</button>
+  </div>
+  <div id="lyric" aria-live="polite"></div>
+
+  <!-- landing: judul editorial raksasa, teks sudut seperti majalah, tombol Play magnetis -->
+  <div id="intro">
+    <div class="intro-grain"></div>
+    <span class="intro-corner tl">Rex Orange County</span>
+    <span class="intro-corner tr"><span id="count">000</span> / 100</span>
+    <span class="intro-corner bl">Best with headphones</span>
+    <span class="intro-corner br">a lyric visual by Andrew</span>
+    <div class="intro-center">
+      <h1 class="intro-title" aria-label="Best Friend"><span class="word">Best</span> <span class="word">Friend</span></h1>
+      <p class="intro-sub">a lyric visual</p>
+      <button id="start" disabled aria-label="Putar">
+        <svg class="ring" viewBox="0 0 120 120">
+          <circle class="track" cx="60" cy="60" r="58" />
+          <circle id="progress" class="bar" cx="60" cy="60" r="58" pathLength="100" />
+        </svg>
+        <svg class="orbit" viewBox="0 0 120 120">
+          <defs><path id="orbit-path" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs>
+          <text><textPath href="#orbit-path">PLAY · BEST FRIEND · PLAY · BEST FRIEND ·</textPath></text>
+        </svg>
+        <span class="core"></span>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z" /></svg>
+      </button>
+      <p id="status">Loading</p>
+    </div>
+  </div>
+
+  <div id="dots"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
